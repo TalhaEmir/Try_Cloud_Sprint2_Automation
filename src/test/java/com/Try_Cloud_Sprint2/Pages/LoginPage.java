@@ -13,8 +13,12 @@ public class LoginPage {
     //test1
     //test2
 
+    //test 3
+    //test 4
+
     @FindBy(id="user")
     public WebElement userName;
+
 
 
 
