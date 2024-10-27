@@ -1,5 +1,6 @@
 package com.Try_Cloud_Sprint2.Pages;
 import com.Try_Cloud_Sprint2.utilities.Driver;
+import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -15,6 +16,9 @@ public class LoginPage {
 
     //test 3
     //test 4
+
+    //test5
+    //test6
 
     @FindBy(id="user")
     public WebElement userName;
