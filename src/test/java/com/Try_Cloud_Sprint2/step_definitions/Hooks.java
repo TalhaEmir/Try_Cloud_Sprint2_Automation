@@ -21,7 +21,7 @@ public class Hooks {
 
     LoginPage loginPage = new LoginPage();
     //import the @Before coming from io.cucumber.java
-    @Before (order = 1)
+    @Before
     public void setupMethod(){
 
 
@@ -31,10 +31,6 @@ public class Hooks {
         loginPage.login();
     }
 
-    //@Before (value = "@login", order = 2 )
-    public void login_scenario_before(){
-        System.out.println("---> @Before: RUNNING BEFORE EACH SCENARIO");
-    }
 
     /*
     @After will be executed automatically after EVERY scenario in the project.
@@ -56,15 +52,6 @@ public class Hooks {
 
     }
 
-    //@BeforeStep
-    public void setupStep(){
-        System.out.println("-----> @BeforeSTEP : Running before each step!");
-    }
-
-    //@AfterStep
-    public void teardownStep(){
-        System.out.println("-----> @AfterSTEP : Running after each step!");
-    }
 
 
 }
