@@ -1,4 +1,5 @@
 package com.Try_Cloud_Sprint2.step_definitions;
+import com.Try_Cloud_Sprint2.Pages.LoginPage;
 import com.Try_Cloud_Sprint2.utilities.BrowserUtils;
 import com.Try_Cloud_Sprint2.utilities.ConfigurationReader;
 import com.Try_Cloud_Sprint2.utilities.Driver;
@@ -7,6 +8,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
@@ -17,13 +19,16 @@ for ALL the SCENARIOS and even STEPS.
  */
 public class Hooks {
 
+    LoginPage loginPage = new LoginPage();
     //import the @Before coming from io.cucumber.java
     @Before (order = 1)
     public void setupMethod(){
 
+
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
 
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        loginPage.login();
     }
 
     //@Before (value = "@login", order = 2 )
@@ -47,7 +52,7 @@ public class Hooks {
 
 
         BrowserUtils.sleep(2);
-        Driver.closeDriver();
+       // Driver.closeDriver();
 
     }
 

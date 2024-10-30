@@ -1,4 +1,5 @@
 package com.Try_Cloud_Sprint2.Pages;
+import com.Try_Cloud_Sprint2.utilities.ConfigurationReader;
 import com.Try_Cloud_Sprint2.utilities.Driver;
 import org.junit.Test;
 import org.openqa.selenium.WebElement;
@@ -29,13 +30,14 @@ public class LoginPage {
     @FindBy(id="password")
     public WebElement password;
 
-    @FindBy(name = "submit-form")
+    @FindBy(id = "submit-form")
     public WebElement submit;
 
 
-    public void login(String userNameStr, String passwordStr) {
-        userName.sendKeys(userNameStr);
-        password.sendKeys(passwordStr);
+    public void login() {
+
+        userName.sendKeys(ConfigurationReader.getProperty("driver_username"));
+        password.sendKeys(ConfigurationReader.getProperty("driver_password"));
         submit.click();
         // verification that we logged
     }
