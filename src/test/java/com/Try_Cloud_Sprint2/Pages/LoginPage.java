@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import com.Try_Cloud_Sprint2.utilities.ConfigurationReader;
 public class LoginPage {
 
     public LoginPage(){
@@ -24,19 +25,17 @@ public class LoginPage {
     public WebElement userName;
 
 
-
-
     @FindBy(id="password")
     public WebElement password;
 
     @FindBy(name = "submit-form")
-    public WebElement submit;
+    public WebElement loginButton;
 
 
-    public void login(String userNameStr, String passwordStr) {
-        userName.sendKeys(userNameStr);
-        password.sendKeys(passwordStr);
-        submit.click();
+    public void login() {
+        userName.sendKeys(ConfigurationReader.getProperty("username"));
+        password.sendKeys(ConfigurationReader.getProperty("password"));
+        loginButton.click();
         // verification that we logged
     }
 }
