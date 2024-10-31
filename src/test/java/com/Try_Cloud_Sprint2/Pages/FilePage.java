@@ -21,19 +21,14 @@ public class FilePage {
     @FindBy(xpath="//ul/li//*[@class='menuitem']")
     public List<WebElement> options;
 
-    public static void optionsFinder(String word){
-        FilePage filePage= new FilePage();
-        filePage.optionButton.click();
-        for(WebElement option : filePage.options){
-            if(option.getText().equals(word)){
-                option.click();
-                break;
-            }
+
+    @FindBy(xpath = "//span[@class='icon icon-add']")
+    public WebElement uploadButton;
+
+
         }
 
 
-    }
 
 
-}
-//div//ul//label
+

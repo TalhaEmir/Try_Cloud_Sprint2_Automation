@@ -8,6 +8,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class Edit_File_Step_Definitions {
 
@@ -25,17 +31,16 @@ public class Edit_File_Step_Definitions {
     }
     FilePage filePage= new FilePage();
 
-    @When("the user selects the {string} option")
-    public void the_user_selects_the_option(String string) {
-        filePage.optionsFinder(string);
+
+    @When("the user uploads a file from the configuration file")
+    public void theUserUploadsAFileFromTheConfigurationFile() {
+        filePage.optionButton.click();
+
+        filePage.uploadButton.sendKeys("filePath");
 
     }
-    @When("the user chooses a file named {string} to upload")
-    public void the_user_chooses_a_file_named_to_upload(String string) {
 
-    }
-    @Then("the file named {string} should be visible in the files list")
-    public void the_file_named_should_be_visible_in_the_files_list(String string) {
-
+    @Then("the file  should be visible in the files list")
+    public void theFileShouldBeVisibleInTheFilesList() {
     }
 }

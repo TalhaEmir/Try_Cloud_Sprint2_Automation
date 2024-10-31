@@ -10,6 +10,5 @@ Feature: File management in Files module
 
 
   Scenario: User can upload a file
-    When the user selects the "Upload file" option
-    And the user chooses a file named "exampleFile.txt" to upload
-    Then the file named "exampleFile.txt" should be visible in the files list
+    When the user uploads a file from the configuration file
+    Then the file  should be visible in the files list
