@@ -9,6 +9,22 @@ Feature: File management in Files module
     And the user navigates to the Files module
 
 
-  Scenario: User can upload a file
-    When the user uploads a file from the configuration file
-    Then the file  should be visible in the files list
+
+  Scenario Outline: User can upload a <"file">
+    When the user clicks on the option button
+    And the user uploads a <"file">
+    Then the file <"file"> should be visible in the files list
+
+    Examples:
+      | file           |
+      | TryCatch.txt   |
+
+
+  Scenario Outline: User can create a new folder
+    When the user clicks on the option button
+    And the user clicks on the New folder button
+    And the user enters the folder name as <"fileName">
+    Then a folder named <"fileName"> should be visible in the files list
+    Examples:
+      | fileName |
+      | Emir     |
