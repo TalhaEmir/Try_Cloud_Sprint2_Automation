@@ -4,6 +4,7 @@ package com.Try_Cloud_Sprint2.step_definitions;
 import com.Try_Cloud_Sprint2.Pages.BasePage;
 import com.Try_Cloud_Sprint2.Pages.LoginPage;
 import com.Try_Cloud_Sprint2.Pages.LogoutPage;
+import com.Try_Cloud_Sprint2.utilities.BrowserUtils;
 import com.Try_Cloud_Sprint2.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -19,9 +20,10 @@ public class Logout_Step_Definitions extends BasePage {
     public void userClicksLogoutHeaderButton() {
         logoutPage.logoutHeader.click();
     }
-    @Then("User clicks logout button")
+    @When("User clicks logout button")
     public void user_clicks_logout_button() {
         logoutPage.logoutButton.click();
+        BrowserUtils.sleep(2);
     }
 
     @Then("User should be logged out and redirected to login page")
@@ -36,8 +38,9 @@ public class Logout_Step_Definitions extends BasePage {
     @And("User cannot return to homepage by clicking step back button after logout")
     public void userCannotReturnToHomepageByClickingStepBackButtonAfterLogout() {
 
-        //loginPage.stepBackButton.click();
-        //Driver.navigate().back;
+
+        Driver.getDriver().navigate().back();
+        BrowserUtils.sleep(3);
 
         String actualTitle = Driver.getDriver().getTitle();
         String expectedTitle = "Trycloud QA";
