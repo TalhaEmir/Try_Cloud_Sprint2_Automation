@@ -1,6 +1,8 @@
 Feature: Dashboard Functionality
   User Story: As a user I should be able to modify Dashboard page
 
+  This Feature file belongs to Crista
+
   Background:
     Given the user is logged in
 @dashboard
