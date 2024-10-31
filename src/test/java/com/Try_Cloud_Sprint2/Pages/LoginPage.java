@@ -5,11 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.Try_Cloud_Sprint2.utilities.ConfigurationReader;
-public class LoginPage {
+public class LoginPage extends BasePage {
 
-    public LoginPage(){
-        PageFactory.initElements(Driver.getDriver(), this);
-    }
+
 
     //test
     //test1
@@ -28,7 +26,7 @@ public class LoginPage {
     @FindBy(id="password")
     public WebElement password;
 
-    @FindBy(name = "submit-form")
+    @FindBy(id="submit-form")
     public WebElement loginButton;
 
 
