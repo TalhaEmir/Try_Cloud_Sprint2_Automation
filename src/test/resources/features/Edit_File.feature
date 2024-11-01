@@ -10,10 +10,10 @@ Feature: File management in Files module
 
 
 
-  Scenario Outline: User can upload a <"file">
+  Scenario Outline: User can upload a <file>
     When the user clicks on the option button
-    And the user uploads a <"file">
-    Then the file <"file"> should be visible in the files list
+    And the user uploads a "<file>"
+    Then the file "<file>" should be visible in the files list
 
     Examples:
       | file           |
@@ -23,8 +23,18 @@ Feature: File management in Files module
   Scenario Outline: User can create a new folder
     When the user clicks on the option button
     And the user clicks on the New folder button
-    And the user enters the folder name as <"fileName">
-    Then a folder named <"fileName"> should be visible in the files list
+    And the user enters the folder name as <"Emir">
+    Then a folder named "<folderName>" should be visible in the files list
+
     Examples:
-      | fileName |
+      | folderName |
       | Emir     |
+
+
+  Scenario Outline: User can delete any selected item from its three dots menu
+    When the user clicks on the three dots menu next to the item named "<exampleFile>"
+    And the user selects the "Delete" option
+    Then the item named "exampleFile.txt" should no longer be visible in the files list
+    Examples:
+      | exampleFile |
+    | Emir|

@@ -35,44 +35,54 @@ public class Edit_File_Step_Definitions {
 
     @When("the user clicks on the option button")
     public void theUserClicksOnTheOptionButton() {
-        loginPage.clickMenuByText("Files");
+        filePage.plusButton.click();
     }
 
 
-    @And("the user uploads a <{string}>")
+    @And("the user uploads a {string}")
     public void theUserUploadsA(String fileName) {
-        BrowserUtils.sleep(5);
-        filePage.uploadFileButton.sendKeys(System.getProperty("user.dir") + "src/test/resources/UploadedFiles/"+fileName);
-        BrowserUtils.sleep(2);
+        BrowserUtils.sleep(3);
+        filePage.uploadFileButton.sendKeys(System.getProperty("user.dir") + "/src/test/resources/UploadedFiles/"+fileName);
+        BrowserUtils.sleep(3);
     }
-
-
-    @Then("the file <{string}> should be visible in the files list")
-    public void theFileShouldBeVisibleInTheFilesList(String fileName) {
-        BrowserUtils.sleep(5);
-        filePage.checkIfFileNameIsDisplayed(fileName);
-
-
+    @Then("the file {string} should be visible in the files list")
+    public void theFileShouldBeVisibleInTheFilesList(String word) {
+        filePage.isDisplayed(word);
     }
 
 
     @And("the user clicks on the New folder button")
     public void theUserClicksOnTheNewFolderButton() {
         filePage.newFolderButton.click();
-
     }
-
 
     @And("the user enters the folder name as <{string}>")
     public void theUserEntersTheFolderNameAs(String fileName) {
-        BrowserUtils.sleep(5);
         filePage.sendTextPart.sendKeys(fileName);
-        BrowserUtils.sleep(2);
+        filePage.enterButton.click();
     }
 
-    @Then("a folder named <{string}> should be visible in the files list")
-    public void aFolderNamedShouldBeVisibleInTheFilesList(String arg0) {
-        BrowserUtils.sleep(5);
-        filePage.checkIfFileNameIsDisplayed(arg0);
+
+    @Then("a folder named {string} should be visible in the files list")
+    public void aFolderNamedShouldBeVisibleInTheFilesList(String folderName) {
+        filePage.isNewFileDisplayed(folderName);
+    }
+
+
+    @When("the user clicks on the three dots menu next to the item named {string}")
+    public void theUserClicksOnTheThreeDotsMenuNextToTheItemNamed(String name) {
+        filePage.clickMoreIconForFileName(name);
+    }
+
+    @And("the user selects the {string} option")
+    public void theUserSelectsTheOption(String fileName) {
+        filePage.clickDeleteSection(fileName);
+
+
+    }
+
+    @Then("the item named {string} should no longer be visible in the files list")
+    public void theItemNamedShouldNoLongerBeVisibleInTheFilesList(String fileName) {
+
     }
 }
