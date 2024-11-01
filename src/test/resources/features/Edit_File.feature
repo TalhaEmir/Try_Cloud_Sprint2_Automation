@@ -37,4 +37,8 @@ Feature: File management in Files module
     Then the item named "exampleFile.txt" should no longer be visible in the files list
     Examples:
       | exampleFile |
-    | Emir|
+      | Emir        |
+
+
+  Scenario: Show total count under files list table
+    Then the total count of files and folders is shown

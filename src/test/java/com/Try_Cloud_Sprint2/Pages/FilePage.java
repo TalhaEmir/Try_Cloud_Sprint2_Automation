@@ -55,12 +55,22 @@ public class FilePage {
     @FindBy(xpath = "//div[@class='thumbnail']")
     public List<WebElement> casesNames;
 
+    @FindBy(xpath = "//span[@class='innernametext']")
+    public List<WebElement> nameSection;
 
-    public void deleteFileByName(String name) {
-        for (WebElement element : casesNames) {
 
+    @FindBy(xpath = "//*[@id='filestable']/tfoot/tr/td[2]/span/span[1]")
+    public WebElement totalNumbersOfFile;
+
+
+
+    public void showUp(String name){
+        for(WebElement element : nameSection){
+            if(!element.isDisplayed()){
+                System.out.println("file is deleted");
+
+            }
         }
-
     }
 
 
@@ -76,7 +86,7 @@ public class FilePage {
     }
 
 
-    public void isDisplayed(String fileName) {
+    public void isComeUp(String fileName) {
         WebElement element = Driver.getDriver().findElement(By.xpath("//span[contains(., '" + fileName + "')]"));
         Assert.assertTrue("Element should be displayed: " + fileName, element.isDisplayed());
     }
@@ -122,8 +132,7 @@ public class FilePage {
 //span[@class='innernametext']/../../div[@class='fileActionsMenu popovermenu bubble open menu'] - //a[@class='name']/following-sibling::div[@class='fileActionsMenu popovermenu bubble open menu']
     }
 
-
-
+////tbody//span[@class='icon icon-more']
 }
 
 

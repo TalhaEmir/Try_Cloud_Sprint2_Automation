@@ -47,7 +47,7 @@ public class Edit_File_Step_Definitions {
     }
     @Then("the file {string} should be visible in the files list")
     public void theFileShouldBeVisibleInTheFilesList(String word) {
-        filePage.isDisplayed(word);
+        filePage.isComeUp(word);
     }
 
 
@@ -83,6 +83,13 @@ public class Edit_File_Step_Definitions {
 
     @Then("the item named {string} should no longer be visible in the files list")
     public void theItemNamedShouldNoLongerBeVisibleInTheFilesList(String fileName) {
+        filePage.showUp(fileName);
+
+    }
+
+    @Then("the total count of files and folders is shown")
+    public void theTotalCountOfFilesAndFoldersIsShown() {
+        filePage.totalNumbersOfFile.isDisplayed();
 
     }
 }
